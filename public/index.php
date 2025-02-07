@@ -15,6 +15,8 @@ $router = new Alterouter();
 // Create a route with the generic method "addRoute"
 $router->addRoute('GET', '/', MainController::class . '@home', 'home');
 
+$router->addRoute('GET', '/produit', MainController::class . '@produit', 'produit');
+
 $router->addRoute('GET', '/register', UserController::class . '@GETregister', 'GETregister');
 $router->addRoute('POST', '/register', UserController::class . '@POSTregister', 'POSTregister');
 
