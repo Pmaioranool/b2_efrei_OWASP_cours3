@@ -8,33 +8,24 @@
 - [Utilisation](#utilisation)
 - [Collaborateurs](#collaborateurs)
 
-# Description du projet
+## Description du projet
 
-Ce projet est une application web de gestion de tâches développée dans le cadre du cours de challenge web à l'Efrei. L'application permet aux utilisateurs de créer, modifier et supprimer des publications, ainsi que de commenter les publications existantes. Elle inclut également un système de rôles pour différencier les administrateurs des utilisateurs.
+## Installation
 
-Les principales fonctionnalités de l'application sont :
-- Création et gestion des publications
-- Système de commentaires pour les publications
-- Authentification des utilisateurs
-- Gestion des rôles des utilisateurs (administrateur et utilisateur)
-- Interface utilisateur réactive
-
-# Installation
-
-## Prérequis
+### Prérequis
 
 - [Composer](https://getcomposer.org/download/)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop)
 
-## Installation des dépendances
+### Installation des dépendances
 
 Si vous n'avez pas installé Composer, vous pouvez l'installer en tapant cette commande pour Linux :
 
 ```bash
 sudo apt-get install composer
 ```
-ou sur cette page pour windows et Mac  [composer dowload](https://getcomposer.org/download/)
 
+ou sur cette page pour windows et Mac  [composer dowload](https://getcomposer.org/download/)
 
 Ensuite, vous pouvez installer les dépendances du projet en exécutant cette commande :
 
@@ -42,7 +33,7 @@ Ensuite, vous pouvez installer les dépendances du projet en exécutant cette co
 composer install
 ```
 
-## Lancer le serveur avec Docker Desktop
+### Lancer le serveur avec Docker Desktop
 
 lancer dockerDeskstop si vous ne l'avez pas voici où l'installer :
 
@@ -60,19 +51,17 @@ cd efrei_b2_challengeWeb_Helldiver-s-2
 docker-compose up --build
 ```
 
-### vous pouvez y acceder sur `http://localhost:8080` dans votre navigateur. <!-- omit in toc -->
+#### vous pouvez y acceder sur `http://localhost:8080` dans votre navigateur. <!-- omit in toc -->
 
-# Utilisation
+## Utilisation
 
-## Admin <!-- omit in toc -->
+### Admin <!-- omit in toc -->
 
-log : admin@admin.com
-password : adminadmin
+log : <admin@admin.com>
+password : \*MKg16bv4z*b!Xc0!hjq^U8F9JN%
 
+*MKg16bv4z*b!Xc0!hjq^U8F9JN%
 
-# Collaborateurs
+## Collaborateurs
 
 - [Lucas MAIORANO](https://github.com/lucasmaiorano77)
-- [Leo MALGONNE](https://github.com/AlpinooO)
-- [Harold LAJOUS](https://github.com/Lajous-Harold)
-- [Lucas ROSIER](https://github.com/LucasR65)
