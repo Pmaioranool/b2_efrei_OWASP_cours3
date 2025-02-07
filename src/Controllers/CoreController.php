@@ -19,7 +19,6 @@ class CoreController
 
         $categoriesModel = new CategoriesModel();
         $headerData = $categoriesModel->GetAllCategories();
-        dump($headerData);
         extract($headerData);
 
         extract($data);
