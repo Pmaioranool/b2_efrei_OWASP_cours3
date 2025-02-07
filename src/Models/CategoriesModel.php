@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use PDO;
 use App\Utils\Database;
+use App\Models\CoreModel;
 
 class CategoriesModel extends CoreModel
 {
@@ -20,10 +22,10 @@ class CategoriesModel extends CoreModel
     public function GetAllCategories()
     {
         $pdo = Database::getPDO();
-        $sql = 'SELECT * FROM `categories`';
+        $sql = 'SELECT * FROM categories';
         $stmt = $pdo->prepare($sql);
         $stmt->execute();
-        $categories = $stmt->fetchAll();
+        $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
         return $categories;
     }
 }
