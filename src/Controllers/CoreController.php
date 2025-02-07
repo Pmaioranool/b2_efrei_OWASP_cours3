@@ -36,6 +36,15 @@ class CoreController
         }
     }
 
+    // Méthode pour rediriger vers une autre page avec un message
+    protected function redirect($route, $message = null)
+    {
+        if ($message) {
+            $_SESSION['flash_message'] = $message;
+        }
+        header("Location: /$route");
+        exit();
+    }
 
     public function isConnected()
     {
