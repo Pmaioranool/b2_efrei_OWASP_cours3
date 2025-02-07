@@ -11,4 +11,18 @@ class MainController extends CoreController
     {
         $this->render('home');
     }
+    public function produit()
+    {
+        $this->render('produit');
+    }
+
+    public function register()
+    {
+        $this->render('register');
+    }
+    public function login()
+    {
+
+        $this->render('login');
+    }
 }
