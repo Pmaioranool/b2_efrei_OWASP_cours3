@@ -6,6 +6,8 @@ require_once __DIR__ . "/../vendor/autoload.php";
 use App\Controllers\MainController;
 use App\Controllers\CoreController;
 use App\Controllers\UserController;
+use App\Controllers\ReportController;
+
 use Alterouter\Alterouter;
 use Alterouter\Request;
 
@@ -25,6 +27,11 @@ $router->addRoute('POST', '/login', UserController::class . '@POSTlogin', 'POSTl
 
 $router->addRoute('GET', '/logout', UserController::class . '@logout', 'logout');
 
+$router->addRoute('GET', '/report', ReportController::class . '@GetReport', 'GetReport');
+$router->addRoute('POST', '/report', ReportController::class . '@POSTReport', 'POSTReport');
+
+$router->addRoute('GET', '/report/{id}', ReportController::class . '@GethandleReport', 'GethandleReport');
+$router->addRoute('POST', '/report/{id}', ReportController::class . '@POSThandleReport', 'POSThandleReport');
 
 
 $route = $router->match(Request::getMethodFromGlobals(), Request::getPathFromGlobals());

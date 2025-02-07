@@ -3,7 +3,9 @@
 // On va imaginer qu'il y a un dossier App puis un dossier controller dedans et on va ranger cette classe (CatalogController) dedans
 namespace App\Controllers; // Maintenant jai rangé CatalogController dans le dossier imaginaire App\Controllers
 
-use APP\Models\CategoriesModel;
+
+use App\Models\CategoriesModel;
+
 
 class CoreController
 {
@@ -17,9 +19,9 @@ class CoreController
     public function render($view, $data = [])
     {
 
-        // $categoriesModel = new categoriesModel();
-        // $headerData = $categoriesModel->GetAllCategories();
-        // extract($headerData);
+        $categoriesModel = new CategoriesModel();
+        $headerData = $categoriesModel->GetAllCategories();
+        extract($headerData);
 
         extract($data);
 
@@ -34,6 +36,15 @@ class CoreController
         }
     }
 
+    // Méthode pour rediriger vers une autre page avec un message
+    protected function redirect($route, $message = null)
+    {
+        if ($message) {
+            $_SESSION['flash_message'] = $message;
+        }
+        header("Location: /$route");
+        exit();
+    }
 
     public function isConnected()
     {

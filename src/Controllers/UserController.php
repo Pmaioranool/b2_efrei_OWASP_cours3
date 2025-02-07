@@ -9,7 +9,7 @@ class UserController extends CoreController
 {
     public function GETregister()
     {
-        $this->render('register');
+        $this->render('user/register');
     }
 
     public function POSTregister()
@@ -24,7 +24,7 @@ class UserController extends CoreController
         $emptyFields = empty($email) || empty($password) || empty($passwordConfirm) || empty($name) || empty($firstname);
 
         if ($emptyFields || $password !== $passwordConfirm) {
-            $this->render('register', ['error' => 'Tous les champs sont obligatoires']);
+            $this->redirect('user/register', 'Tous les champs sont obligatoires');
             return;
         }
 
@@ -33,13 +33,12 @@ class UserController extends CoreController
         $userModel = new UserModel($email, $hashedPassword, $name, $firstname);
         $userModel->register();
 
-        header('Location: /');
-        exit();
+        $this->redirect('', 'Votre compte a bien été créé, vous pouvez maintenant vous connecter');
     }
 
     public function GETlogin()
     {
-        $this->render('login');
+        $this->render('user/login');
     }
 
     public function POSTlogin()
@@ -51,22 +50,20 @@ class UserController extends CoreController
         $emptyFields = empty($email) || empty($password);
 
         if ($emptyFields) {
-            $this->render('login', ['error' => 'Tous les champs sont obligatoires']);
+            $this->render('user/login', ['error' => 'Tous les champs sont obligatoires']);
             return;
         }
 
         $userModel = new UserModel($email);
 
         if (!$userModel->login($password)) {
-            $this->render('login', ['error' => 'Email ou mot de passe incorrect']);
+            $this->redirect('user/login', 'Email ou mot de passe incorrect');
             return;
         }
 
-        $userModel->login($password);
+        $_SESSION['user'] = $userModel->getInfo();
 
-        $_SESSION['user'] =
-
-            $this->render('login');
+        $this->render('user/login');
     }
 
     public function logout()
@@ -75,8 +72,7 @@ class UserController extends CoreController
         // détruire la session
         session_destroy();
 
-        header('Location: /');
+        $this->redirect('', 'Déconnexion réussie');
 
-        exit();
     }
 }

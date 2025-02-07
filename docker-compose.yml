@@ -14,7 +14,7 @@ services:
     environment:
       DB_HOST: db
       DB_PORT: 5432
-      DB_NAME: OWASPDB
+      DB_NAME: owaspdb
       DB_USER: postgres
       DB_PASSWORD: NSks!z!*B$@UDU6NNPkY8y3v$3uR
 
@@ -24,7 +24,7 @@ services:
       - postgres_data:/var/lib/postgresql/data
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
-      POSTGRES_DB: OWASPDB
+      POSTGRES_DB: owaspdb
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: NSks!z!*B$@UDU6NNPkY8y3v$3uR
 
