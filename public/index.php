@@ -7,6 +7,7 @@ use App\Controllers\MainController;
 use App\Controllers\CoreController;
 use App\Controllers\UserController;
 use App\Controllers\ReportController;
+use App\Controllers\ProductController;
 
 use Alterouter\Alterouter;
 use Alterouter\Request;
@@ -17,7 +18,12 @@ $router = new Alterouter();
 // Create a route with the generic method "addRoute"
 $router->addRoute('GET', '/', MainController::class . '@home', 'home');
 
-$router->addRoute('GET', '/produit', MainController::class . '@produit', 'produit');
+$router->addRoute('GET', '/produit', ProductController::class . '@produits', 'produits');
+
+$router->addRoute('GET', '/profile', UserController::class . '@GETProfile', 'GETProduct');
+$router->addRoute('POST', '/profile/product', ProductController::class . '@POSTProduct', 'POSTProduct');
+
+$router->addRoute('GET', '/produit/{id}', ProductController::class . '@produit', 'produit');
 
 $router->addRoute('GET', '/register', UserController::class . '@GETregister', 'GETregister');
 $router->addRoute('POST', '/register', UserController::class . '@POSTregister', 'POSTregister');
@@ -33,6 +39,9 @@ $router->addRoute('POST', '/report', ReportController::class . '@POSTReport', 'P
 $router->addRoute('GET', '/report/{id}', ReportController::class . '@GethandleReport', 'GethandleReport');
 $router->addRoute('POST', '/report/{id}', ReportController::class . '@POSThandleReport', 'POSThandleReport');
 
+$router->addRoute('GET', '/admin', ReportController::class . '@admin', 'admin');
+
+$router->addRoute('GET', '/presentation/{id}', MainController::class . '@presentation', 'presentation');
 
 $route = $router->match(Request::getMethodFromGlobals(), Request::getPathFromGlobals());
 // dump($match);

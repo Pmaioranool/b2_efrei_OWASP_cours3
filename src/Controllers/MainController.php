@@ -3,13 +3,16 @@
 namespace App\Controllers;
 
 use App\Controllers\CoreController;
+use App\Models\UserModel;
 
 class MainController extends CoreController
 {
     // Page d'accueil
     public function home()
     {
-        $this->render('home');
+        $userModel = new UserModel();
+        $seller = $userModel->getSeller();
+        $this->render('home', $seller);
     }
     public function produit()
     {
@@ -25,4 +28,5 @@ class MainController extends CoreController
 
         $this->render('login');
     }
+
 }
