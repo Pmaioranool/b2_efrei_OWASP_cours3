@@ -18,7 +18,8 @@ class ReportController extends CoreController
         $id_user = $_SESSION['user']['id'];
         $message = htmlspecialchars($_POST['message']);
         $title = htmlspecialchars($_POST['title']);
-        $report = new ReportModel(null, $id_user, $title, $message);
+        $id_rpoduit = htmlspecialchars($_POST['id_produit']);
+        $report = new ReportModel(null, $id_user, $title, $message, $id_rpoduit);
         $report->createReport();
         $this->redirect('report', 'Votre signalement a bien été pris en compte');
     }

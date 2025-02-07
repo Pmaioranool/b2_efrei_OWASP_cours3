@@ -63,4 +63,12 @@ class CoreController
         }
     }
 
+    public function isSeller()
+    {
+        $this->isConnected();
+        if (!($_SESSION['user']['titre_role'] == 'vendeur' || $_SESSION['user']['titre_role'] == 'admin')) {
+            header('Location: /');
+            exit();
+        }
+    }
 }

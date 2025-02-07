@@ -75,4 +75,21 @@ class UserController extends CoreController
         $this->redirect('', 'Déconnexion réussie');
 
     }
+
+    public function GETProfile()
+    {
+        $this->isConnected();
+        $id = $_SESSION['user']['id'];
+        $userModel = new UserModel($id);
+        $products = $userModel->getAllProductsByUser();
+        $this->render('user/profile', $products);
+    }
+
+    public function presentation($matches)
+    {
+        $id = $matches['id'];
+        $userModel = new UserModel($id);
+        $users = $userModel->getInfos();
+        $this->render('presentation', $users);
+    }
 }
