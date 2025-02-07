@@ -24,7 +24,7 @@ class UserController extends CoreController
         $emptyFields = empty($email) || empty($password) || empty($passwordConfirm) || empty($name) || empty($firstname);
 
         if ($emptyFields || $password !== $passwordConfirm) {
-            $this->render('user/register', ['error' => 'Tous les champs sont obligatoires']);
+            $this->redirect('user/register', 'Tous les champs sont obligatoires');
             return;
         }
 
@@ -33,8 +33,7 @@ class UserController extends CoreController
         $userModel = new UserModel($email, $hashedPassword, $name, $firstname);
         $userModel->register();
 
-        header('Location: /');
-        exit();
+        $this->redirect('', 'Votre compte a bien été créé, vous pouvez maintenant vous connecter');
     }
 
     public function GETlogin()
@@ -58,7 +57,7 @@ class UserController extends CoreController
         $userModel = new UserModel($email);
 
         if (!$userModel->login($password)) {
-            $this->render('user/login', ['error' => 'Email ou mot de passe incorrect']);
+            $this->redirect('user/login', 'Email ou mot de passe incorrect');
             return;
         }
 
@@ -73,8 +72,7 @@ class UserController extends CoreController
         // détruire la session
         session_destroy();
 
-        header('Location: /');
+        $this->redirect('', 'Déconnexion réussie');
 
-        exit();
     }
 }
