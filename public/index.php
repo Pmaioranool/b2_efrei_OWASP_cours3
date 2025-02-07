@@ -6,7 +6,6 @@ require_once __DIR__ . "/../vendor/autoload.php";
 use App\Controllers\MainController;
 use App\Controllers\CoreController;
 use App\Controllers\UserController;
-use App\Controllers\publicationController;
 use Alterouter\Alterouter;
 use Alterouter\Request;
 
@@ -15,6 +14,15 @@ $router = new Alterouter();
 
 // Create a route with the generic method "addRoute"
 $router->addRoute('GET', '/', MainController::class . '@home', 'home');
+
+$router->addRoute('GET', '/register', UserController::class . '@GETregister', 'GETregister');
+$router->addRoute('POST', '/register', UserController::class . '@POSTregister', 'POSTregister');
+
+$router->addRoute('GET', '/login', UserController::class . '@GETlogin', 'GETlogin');
+$router->addRoute('POST', '/login', UserController::class . '@POSTlogin', 'POSTlogin');
+
+$router->addRoute('GET', '/logout', UserController::class . '@logout', 'logout');
+
 
 
 $route = $router->match(Request::getMethodFromGlobals(), Request::getPathFromGlobals());
