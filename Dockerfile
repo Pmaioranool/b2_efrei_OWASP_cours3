@@ -2,7 +2,8 @@ FROM php:8.2-apache
 
 # Installation des dépendances système et extensions PHP
 RUN apt-get update && apt-get install -y \
-    && docker-php-ext-install pdo
+    libpq-dev \
+    && docker-php-ext-install pdo_pgsql
 
 # Configuration d'Apache
 RUN a2enmod rewrite

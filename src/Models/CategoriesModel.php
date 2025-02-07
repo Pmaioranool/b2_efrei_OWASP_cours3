@@ -7,7 +7,6 @@ use App\Utils\Database;
 class CategoriesModel extends CoreModel
 {
 
-    private $id;
     private $titre;
     private $parent;
 

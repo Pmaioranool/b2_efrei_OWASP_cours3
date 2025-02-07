@@ -3,7 +3,7 @@
 // On va imaginer qu'il y a un dossier App puis un dossier controller dedans et on va ranger cette classe (CatalogController) dedans
 namespace App\Controllers; // Maintenant jai rangé CatalogController dans le dossier imaginaire App\Controllers
 
-use APP\Models\categoriesModel;
+use App\Models\CategoriesModel;
 
 class CoreController
 {
@@ -17,7 +17,7 @@ class CoreController
     public function render($view, $data = [])
     {
 
-        $categoriesModel = new categoriesModel();
+        $categoriesModel = new CategoriesModel();
         $headerData = $categoriesModel->GetAllCategories();
         extract($headerData);
 
