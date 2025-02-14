@@ -36,21 +36,37 @@ nav a:hover{
 
 
 
-#home{
+#home, #log_sign{
     margin: 0 10%;
 }
-#home h1{
+#home h1, #log_sign h1{
     margin: 10% 0;
 }
 #home h2{
     margin: 2% 0;
 }
-#ajout_recent{
-    width: 100%;
+#button_cat button{
+    width: 10%;
+    padding: .7% 1%;
+    border-radius: 3em;
+    border: none;
+    margin: 0 1%;
+    background-color: rgb(219, 219, 219);
+}
+#section_ajout_recent{
     display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+#ajout_recent{
+    width: 12%;
+    display: flex;
+    margin-right: 2%;
+    margin-bottom: 2%;
+
 }
 #ajout_recent article{
-    width: 12%;
+    width: 100%;
     padding: .5%;
     background-color: azure;
 }
@@ -89,6 +105,7 @@ nav a:hover{
     display: flex;
     align-items: center;
     font-size: 1.05em;
+    margin: 1% 0;
 }
 #produit_desc span img{
     width: 5%;
@@ -96,6 +113,35 @@ nav a:hover{
 main{
     min-height: 60vh;
 }
+
+
+#log_sign form{
+    width: 30%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 3% 2%;
+    border-radius: 1em;
+    background-color: rgb(245, 245, 245);
+}
+#log_sign label{
+    width: 100%;
+    margin: 5% 0 2%;
+}
+#log_sign input{
+    width: 100%;
+    padding: 4% 0% 4% 2%;
+    border: none;
+    border-radius: 3em;
+    background-color: rgb(233, 233, 233);
+}
+#log_sign [type=submit]{
+    background-color: rgb(36, 36, 36);
+    color: white;
+    width: 30%;
+    margin: 4% auto 0;
+}
+
 footer{
     display: flex;
     justify-content: space-around;
